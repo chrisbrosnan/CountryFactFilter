@@ -2,10 +2,7 @@
 import { useState, useEffect } from 'react';
 import useSWR from 'swr';
 
-export default function FetchFlag({ countryCode = 'AFG' }) {
-
-    const [flag, setFlag] = useState('');
-    const [country, setCountry] = useState('');
+export default function FetchFlag({ countryFlag = 'AFG' }) {
   
     type Country = {
       name: string;
@@ -21,15 +18,17 @@ export default function FetchFlag({ countryCode = 'AFG' }) {
       data: countries,
       error,
       isValidating,
-    } = useSWR('https://restcountries.com/v3.1/alpha/' + countryCode + '/', fetcher);
+    } = useSWR('https://restcountries.com/v3.1/alpha/' + countryFlag + '/', fetcher);
   
     // Handles error and loading state
     if (error) return <div className='failed'>failed to load</div>;
     if (isValidating) return <div className="Loading">Loading...</div>;
+
+    console.log(countries[0]);
   
     return (
       <div>
-          { countryCode }
+          <img src={ countries[0].flags.png } title={ countries[0].name.common } alt='flag' width={200} />
       </div>
     );
 

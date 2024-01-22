@@ -1,10 +1,12 @@
 'use client'; 
 import React, { useState } from 'react';
 import useSWR from 'swr';
+import FetchFlag from './FetchFlag';
+import FetchInfo from './FetchInfo';
 
 export default function FlagDropdown() {
 
-  const [flag, setFlag] = useState('');
+  const [countryCode, setCountry] = useState('GBR');
 
   type Country = {
     name: string;
@@ -26,21 +28,22 @@ export default function FlagDropdown() {
   if (error) return <div className='failed'>failed to load</div>;
   if (isValidating) return <div className="Loading">Loading...</div>;
 
-  function changeFlag(e) {
-    setFlag(e.target.value);
+  function changeCountry(e) {
+    setCountry(e.target.value);
   }
 
   return (
     <div>
-      <select name='flagSelect' onChange={changeFlag}>
+      <select name='flagSelect' value={ countryCode } onChange={changeCountry}>
         {countries &&
           countries.map((country, index) => (
-          <option value={ country.flags.png }>
+          <option value={ country.alpha3Code }>
             { country.name }
           </option>
         ))}
       </select>
-      <img src={ flag } title={ flag } alt='flag' width={100} />
+      <FetchFlag countryFlag={ countryCode } />
+      <FetchInfo countryCode={ countryCode } />
     </div>
   );
   
