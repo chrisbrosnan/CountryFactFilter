@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import useSWR from 'swr';
 
-export default function FetchFlag({ countryFlag = 'AFG' }) {
+export default function FetchFlag({ countryFlag }) {
   
     type Country = {
       name: string;
