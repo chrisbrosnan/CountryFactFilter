@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import useSWR from 'swr';
 import FetchFlag from './FetchFlag';
 import FetchInfo from './FetchInfo';
+import FetchCOA from './FetchCOA';
 
 export default function FlagDropdown() {
 
@@ -33,8 +34,8 @@ export default function FlagDropdown() {
   }
 
   return (
-    <div>
-      <select name='flagSelect' value={ countryCode } onChange={changeCountry}>
+    <div className='m-5'>
+      <select className='m-5'name='flagSelect' value={ countryCode } onChange={changeCountry}>
         {countries &&
           countries.map((country, index) => (
           <option value={ country.alpha3Code }>
@@ -42,8 +43,21 @@ export default function FlagDropdown() {
           </option>
         ))}
       </select>
-      <FetchFlag countryFlag={ countryCode } />
-      <FetchInfo countryCode={ countryCode } />
+      <table>
+        <tr>
+          <td>
+            <FetchFlag countryFlag={ countryCode } />
+          </td>
+          <td>
+            <FetchCOA countryFlag={ countryCode } />
+          </td>
+        </tr>
+        <tr>
+          <td colSpan={2}>
+            <FetchInfo countryCode={ countryCode } />
+          </td>
+        </tr>
+      </table>
     </div>
   );
   

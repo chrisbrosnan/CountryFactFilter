@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import useSWR from 'swr';
 
-export default function FetchFlag({ countryFlag }) {
+export default function FetchCOA({ countryFlag }) {
   
     type Country = {
       name: string;
@@ -26,7 +26,7 @@ export default function FetchFlag({ countryFlag }) {
   
     return (
       <div>
-          <img className='m-5' src={ countries[0].flags.png } title={ countries[0].name.common } alt='flag' width={200} />
+          <img className='m-5' src={ countries[0].coatOfArms.png } title={ countries[0].name.common } alt='flag' width={150} />
       </div>
     );
 

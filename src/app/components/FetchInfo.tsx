@@ -23,54 +23,52 @@ export default function FetchInfo({ countryCode }) {
     // Handles error and loading state
     if (error) return <div className='failed'>failed to load</div>;
     if (isValidating) return <div className="Loading">Loading...</div>;
-
-    console.log(countries[0]);
   
     return (
       <div>
-        <table>
+        <table className='m-5'>
           <tr>
-            <td>Name (Common):</td>
+            <td className='pr-3'><strong>Name (Common):</strong></td>
             <td>{ countries[0].name.common }</td>
           </tr>
           <tr>
-            <td>Name (Official):</td>
+            <td className='pr-3'><strong>Name (Official):</strong></td>
             <td>{ countries[0].name.official }</td>
           </tr>
           <tr>
-            <td>Capital:</td>
+            <td className='pr-3'><strong>Capital:</strong></td>
             <td>{ countries[0].capital }</td>
           </tr>
           <tr>
-            <td>Region:</td>
+            <td className='pr-3'><strong>Region:</strong></td>
             <td>{ countries[0].region }</td>
           </tr>
           <tr>
-            <td>Subregion:</td>
+            <td className='pr-3'><strong>Subregion:</strong></td>
             <td>{ countries[0].subregion }</td>
           </tr>
           <tr>
-            <td>Capital:</td>
+            <td className='pr-3'><strong>Capital:</strong></td>
             <td>{ countries[0].capital }</td>
           </tr>
           <tr>
-            <td>Population:</td>
+            <td className='pr-3'><strong>Population:</strong></td>
             <td>{ countries[0].population }</td>
           </tr>
           <tr>
-            <td>Area:</td>
-            <td>{ countries[0].area }</td>
+            <td className='pr-3'><strong>Area:</strong></td>
+            <td>{ countries[0].area }km<sup>2</sup></td>
           </tr>
           <tr>
-            <td>Landlocked:</td>
+            <td className='pr-3'><strong>Landlocked:</strong></td>
             <td>{ countries[0].landlocked }</td>
           </tr>
           <tr>
-            <td>UN Member:</td>
+            <td className='pr-3'><strong>UN Member:</strong></td>
             <td>{ countries[0].unMember }</td>
           </tr>
           <tr>
-            <td>Timezones:</td>
+            <td className='pr-3'><strong>Timezones:</strong></td>
             <td>{ countries[0].timezones }</td>
           </tr>
         </table>
