@@ -25,9 +25,10 @@ export default function FetchFlag({ countryFlag }) {
     if (isValidating) return <div className="Loading">Loading...</div>;
   
     return (
-      <div>
-          <img className='m-5' src={ countries[0].flags.png } title={ countries[0].name.common } alt='flag' width={200} />
-      </div>
+        <div className='my-3'>
+            <p className='text-center mb-3'><strong>Flag:</strong></p>
+            <img className='mx-auto' src={ countries[0].flags.png } title={ countries[0].name.common } alt='flag' width={200} />
+        </div>
     );
 
 }

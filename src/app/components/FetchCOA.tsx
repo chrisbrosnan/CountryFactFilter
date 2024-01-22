@@ -25,9 +25,10 @@ export default function FetchCOA({ countryFlag }) {
     if (isValidating) return <div className="Loading">Loading...</div>;
   
     return (
-      <div>
-          <img className='m-5' src={ countries[0].coatOfArms.png } title={ countries[0].name.common } alt='flag' width={150} />
-      </div>
+        <div className='my-3'>
+            <p className='text-center mb-3'><strong>Coat of Arms:</strong></p>
+            <img className='mx-auto' src={ countries[0].coatOfArms.png ?? 'https://placehold.co/100x100' } title={ countries[0].name.common } alt='flag' width={150} />
+        </div>
     );
 
 }
