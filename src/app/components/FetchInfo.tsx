@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import useSWR from 'swr';
 
-export default function FetchInfo({ countryCode = 'AFG' }) {
+export default function FetchInfo({ countryCode }) {
   
     type Country = {
       name: string;
