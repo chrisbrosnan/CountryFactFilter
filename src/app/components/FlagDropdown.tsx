@@ -35,7 +35,7 @@ export default function FlagDropdown() {
 
   return (
     <div className='m-5'>
-      <select className='mt-5 mb-3 px-3 py-4'name='flagSelect' value={ countryCode } onChange={changeCountry}>
+      <select className='text-black mt-5 mb-3 px-3 py-4 border border-1 border-solid'name='flagSelect' value={ countryCode } onChange={changeCountry}>
         {countries &&
           countries.map((country, index) => (
           <option value={ country.alpha3Code }>
@@ -43,7 +43,7 @@ export default function FlagDropdown() {
           </option>
         ))}
       </select>
-      <table>
+      <table className='text-black'>
         <tr>
           <td>
             <FetchFlag countryFlag={ countryCode } />
